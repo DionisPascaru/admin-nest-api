@@ -1,12 +1,12 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
-export class UserEntity {
+export class Admin {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  fullName: string;
+  name: string;
 
   @Column({ unique: true })
   email: string;

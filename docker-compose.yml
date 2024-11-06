@@ -17,9 +17,9 @@ services:
       - PG_PORT=5432
     networks:
       - backend_network
+    working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
-      - /usr/src/app/node_modules
     restart: unless-stopped
     depends_on:
       - admin-nest-db
