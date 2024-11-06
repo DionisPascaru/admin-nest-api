@@ -1,10 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UserModule } from './entities/user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostgresSqlDataSource } from '../config/ormConfig';
 import { ConfigModule } from '@nestjs/config';
+import { AdminModule } from "./entities/admin/admin.module";
 
 @Module({
   imports: [
@@ -14,9 +13,8 @@ import { ConfigModule } from '@nestjs/config';
     }),
     TypeOrmModule.forRoot(PostgresSqlDataSource),
     UserModule,
+    AdminModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
   exports: [ConfigModule],
 })
 export class AppModule {}
